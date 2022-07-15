@@ -1,0 +1,18 @@
+
+
+<div *ngIf="lastHero.length != 0">
+  <h3>Heroe Borrado</h3>
+  <ul>
+    <li *ngFor="let delete of lastHero">{{delete}}</li>
+  </ul>
+</div>
+
+<p>Heroes disponibles</p>
+
+<ul>
+  <li *ngFor="let heroe of heroes; let i = index">{{ i + 1 }} - {{ heroe }}</li>
+</ul>
+
+<div *ngIf="heroes.length != 0;then thenBlock else elseBlock" ></div>
+<ng-template #thenBlock><button (click)="borrarHeroe()">Borrar</button></ng-template>
+<ng-template #elseBlock><button (click)="borrarHeroe()" disabled>Ya no hay Heroes</button></ng-template>
